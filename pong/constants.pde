@@ -4,7 +4,7 @@ int displayWidth=500, displayHeight=500;
 // Velocity Cnstants
 float BALL_VELOCITY;
 float PADDLE_VELOCITY = 10;
-
+int m,n;
 // Background Color
 int bgColor = 0;
 //Restitution coeff

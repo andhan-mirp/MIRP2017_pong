@@ -15,6 +15,8 @@ void draw() {
   drawPaddles();
   resetGame();
   updateBallPosition();
+  
+  displayScores();
 }
 
 void drawGameScreen() {
@@ -51,5 +53,12 @@ void resetGame(){
 
 void displayScores() {
   // Display Left and Right player Scores
- 
+  rightLose();
+  leftLose();
+ if( m == 1)
+ { text("LeftWins", 250,50);
+ }
+ if( n == 1)
+ { text("RightWins", 250,50);
+ }
 }
