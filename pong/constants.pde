@@ -7,6 +7,7 @@ float PADDLE_VELOCITY = 10;
 
 // Background Color
 int bgColor = 0;
+//Restitution coeff
 
 // Ball parameters
 float ballX, ballY;
@@ -15,9 +16,11 @@ float ballRadius = 10;
 int ballColor = 255;
 
 // Y - position of Left and Right paddles
-float leftPaddle=displayHeight/2, rightPaddle=displayHeight/2;
+float leftPaddle = displayHeight/3 , rightPaddle= displayHeight/3;
 // Paddle Dimensions
-float paddleLength = 180, paddleWidth = 20;
+float paddleLength = 180,paddleWidth = 20;
+ 
+
 int paddleColor = 255;
 
 // Score Variables
