@@ -11,12 +11,7 @@ void setup() {
 
 void draw() {
   drawGameScreen();
-  drawBall();
-  drawPaddles();
-  resetGame();
-  updateBallPosition();
   
-  displayScores();
 }
 
 void drawGameScreen() {
@@ -27,7 +22,14 @@ void drawGameScreen() {
   // Update Ball and Paddle Positions
   updatePaddlePositions() ;
   // Draw Ball and Paddles
+  drawBall();
+  drawPaddles();
+  resetGame();
+  updateBallPosition();
+  
   // Display Scores
+    displayScores();
+
 }
 
 void drawBall() {
@@ -53,12 +55,16 @@ void resetGame(){
 
 void displayScores() {
   // Display Left and Right player Scores
+  
+  println(m);
+ 
+  println(n);
   rightLose();
   leftLose();
  if( m == 1)
- { text("LeftWins", 250,50);
+ { text("LeftWins", 100,60);
  }
  if( n == 1)
- { text("RightWins", 250,50);
+ { text("RightWins", 660,60);
  }
 }

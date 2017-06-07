@@ -1,5 +1,5 @@
 // Display Size
-int displayWidth=500, displayHeight=500;
+int displayWidth=900, displayHeight=600;
 
 // Velocity Cnstants
 float BALL_VELOCITY;
