@@ -1,41 +1,37 @@
 void updateBallVelocity() {
   // Detect Ball collisions with walls or paddles
- 
-  
-  
-  // Resolve Collisions with all other walls.
- if (ballX < paddleWidth + ballRadius){
-    ballX = paddleWidth + ballRadius;
-    ballVx*= -1;
- }
-  if (ballX >displayWidth -(paddleWidth + ballRadius)){
-    ballX = displayWidth- ( paddleWidth+ballRadius );
-    ballVx*= -1;
+  //top
+  if(ballY<ballRadius)
+  {ballVy*=-1;
+  ballY=ballRadius;}
+  //bottom
+  if(ballY>displayHeight-ballRadius){
+    ballVy*=-1;
+    ballY=displayHeight-ballRadius;}
+    // If collides with left wall, right player gains one point
+  if(ballX<=ballRadius)
+  leftLose();
+ // If collides with right wall, left player gains one point
+ if(ballX>=displayWidth-ballRadius)
+ rightLose();
+    //left paddle
+   if(ballX<=ballRadius+paddleWidth)
+  {
+    if((ballY<=leftPaddle+paddleLength)&&(ballY>=leftPaddle))
+    {ballVx*=-1;
+    ballX=ballRadius+paddleWidth;}
   }
+  //right paddle
+  if(ballX>=(displayWidth-ballRadius)-paddleWidth)
+  {
+    if((ballY<=rightPaddle+paddleLength)&&(ballY>=rightPaddle))
+    {ballVx*=-1;
+    ballX=displayWidth-ballRadius-paddleWidth;}
+  }
+  // If collide with paddle, or top/bottom wall, then bounce off
+
   
- // If collide with paddle, or top/bottom wall, then bounce off
-  { if (ballY > displayHeight-ballRadius){
-    ballY = displayHeight-ballRadius;
-    ballVy *= -1;
-  }}
- { if (ballY <ballRadius){
-    ballY = ballRadius;
-    ballVy *= -1;
-  }}
   
- // If collides with right wall, left player gains one point  
- {if (ballX > displayWidth-ballRadius){
-    ballX = displayWidth/2;
-    ballVx*=0;
-    leftScore+=1;
- }} 
-  // If collides with left wall, right player gains one point
-   {if (ballX < ballRadius){
-    ballX=displayWidth/2;
-    ballVx*= 0;
-    rightScore+=1;
-  }}
- 
 }
 
 void updateBallPosition() {
@@ -45,18 +41,20 @@ void updateBallPosition() {
 
 void updatePaddlePositions() {
   // Based on the keys pressedd, move the paddles (update Y position)
-  if (left_up){
-    leftPaddle = leftPaddle - 10;
-  }
-  if (right_up){
-    rightPaddle = rightPaddle - 10;
-  }
-  if (left_down){
-    leftPaddle = leftPaddle + 10;
-  }
-  if (right_down){
-    rightPaddle = rightPaddle + 10;
-  }
+  if(leftPaddle>0)
+  {if(left_up)
+  leftPaddle-=PADDLE_VELOCITY;}
   
+  if(leftPaddle<displayHeight-paddleLength){
+  if(left_down)
+  leftPaddle+=PADDLE_VELOCITY;}
+  
+   if(rightPaddle>0){
+  if(right_up)
+  rightPaddle-=PADDLE_VELOCITY;}
+  
+  if(rightPaddle<displayHeight-paddleLength){
+  if(right_down)
+  rightPaddle+=PADDLE_VELOCITY;}
   // Make sure the paddles don't leave the screen
 }

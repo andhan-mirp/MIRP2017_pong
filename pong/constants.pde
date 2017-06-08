@@ -2,7 +2,7 @@
 int displayWidth=900, displayHeight=600;
 
 // Velocity Cnstants
-float BALL_VELOCITY;
+float BALL_VELOCITY=2;
 float PADDLE_VELOCITY = 10;
 int m,n;
 // Background Color

@@ -1,15 +1,19 @@
 void rightLose() {
- { if(leftScore>rightScore)
-   m=1;
-  println(m);
- }
+    leftScore+=1; 
+    displayScores();
+    delay(100);
+    ballX=displayWidth/2;
+    ballY=0;
+    ballVx=2*BALL_VELOCITY;
+    ballVy=5;
 }
 
 void leftLose() {
-  
-  if(rightScore>leftScore)
-  {
-     n=1;
-     println(n);
-  }
+    rightScore+=1;
+    displayScores();
+    delay(100);
+    ballX=displayWidth/2;
+    ballY=0;
+    ballVx=2*BALL_VELOCITY;
+    ballVy=5;
 }
